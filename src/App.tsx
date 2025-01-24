@@ -10,8 +10,7 @@ const App:React.FC = ()=> {
     <div>
     <MyApp />
 
-      <strong>hell</strong>
-      hell
+
     </div>
     </>
   )
