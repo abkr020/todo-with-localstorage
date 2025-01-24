@@ -2,11 +2,15 @@
 
 import './App.css'
 
-function App() {
+const App:React.FC = ()=> {
 
   return (
     <>
+    <div>
+
+      <strong>hell</strong>
       hell
+    </div>
     </>
   )
 }
