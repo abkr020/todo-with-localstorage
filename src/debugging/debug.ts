@@ -48,5 +48,6 @@ const createDebug = (namespace: string) => {
 // Create a default log instance using the base namespace
 const log = createDebug(APP_NAMESPACE);
 
-// Export `log` for easy imports
+// Export both `log` and `createDebug` for flexible use
+export { createDebug, log };
 export default log;
