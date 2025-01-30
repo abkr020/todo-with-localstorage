@@ -1,0 +1,22 @@
+.display__todo {
+    border: 2px dashed tomato;
+    display: flex;
+    /* justify-content: space-evenly; */
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.display__todo__single {
+    border: 2px solid oldlace;
+}
+
+.display__todo__buttons {
+    border: 2px solid magenta;
+    
+}
+.display__todo__buttons button {
+    border: 2px solid magenta;
+    margin: 1rem;
+    padding: 0.5rem;
+    cursor: pointer;
+}

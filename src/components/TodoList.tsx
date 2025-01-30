@@ -1,4 +1,5 @@
 import React from 'react'
+import DisplayTodo from './DisplayTodo';
 
 interface ITodosList {
     PropertyTodo: string;
@@ -14,7 +15,10 @@ const TodoList:React.FC<TodoListProps> = (props) => {
       my all to so
       <ul>
         {props.todos.map((todo, index) => (
-          <li key={index}>{todo.PropertyTodo}</li> // Access and display Itodo from each ITodos object
+          <li key={index}>
+            <DisplayTodo id={index} singleTodo={todo.PropertyTodo}/>
+          </li> // Access and display Itodo from each ITodos object
+        //   <li key={index}>{todo.PropertyTodo}</li> // Access and display Itodo from each ITodos object
         ))}
       </ul>
     </div>
