@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import InputTodo from './InputTodo'
 import TodoList from './TodoList'
 import debugLib from 'debug';
-import createDebug from '../debugging/debug'
+import log from '../debugging/debug'
 
-const debug = createDebug('app:todo')
+// const log = createDebug('app:todo')
 
 interface ITodos {
     PropertyTodo: string;
@@ -13,11 +13,11 @@ const Todo: React.FC = () => {
 
     const [todo, setTodo] = useState<string>("")
     const [todos, setTodos] = useState<ITodos[]>([])
-    debug("value of todo", todos)
+    log("value of todo", todos)
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        debug("handle submit")
+        log("handle submit")
         setTodos([...todos,{PropertyTodo:todo}])
         setTodo(''); // Clear the input after submit
 

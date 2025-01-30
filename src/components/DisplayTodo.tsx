@@ -1,8 +1,8 @@
 import React from 'react'
 import './styles/DisplayTodo.css'
 import debugLib from 'debug';
-import createDebug from '../debugging/debug'
-const debug = createDebug('app:Display Todo single')
+import log from '../debugging/debug'
+// const debug = createDebug('app:Display Todo single')
 interface SingleTodoProps {
     singleTodo: string;
     id:number;
@@ -11,7 +11,7 @@ interface SingleTodoProps {
 const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
     const a= 't';
     const handleDone = (id:number)=>{
-        debug("a",id);
+        log("a",id);
         props.singleTodo='ak'
 
     }
