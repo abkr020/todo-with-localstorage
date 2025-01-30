@@ -1,12 +1,7 @@
 import React from 'react'
 import './styles/DisplayTodo.css'
-import debugLib from 'debug';
-import log, { createDebug } from '../debugging/debug';
+import log from '../debugging/debug';
 
-const customLog = createDebug('app:DisplayTodo');
-
-
-customLog('Custom log for a specific namespace');
 interface SingleTodoProps {
     singleTodo: string;
     id:number;
@@ -15,11 +10,8 @@ interface SingleTodoProps {
 const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
     const a= 't';
     const handleDone = (id:number)=>{
-        customLog('here Custom log: Additional debug info'); // Logs with the `app:DisplayTodo` namespace
         log("here a",id);
-
         props.singleTodo='ak'
-
     }
     return (
         <div className='display__todo'>
