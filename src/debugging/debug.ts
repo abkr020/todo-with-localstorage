@@ -52,7 +52,7 @@ const createDebug = (namespace: string) => {
     }
 
     // Format the log with colors for folder, file, and function name
-    const formattedMessage = `${COLORS.folder}[${folderName}]${COLORS.reset}/${COLORS.file}${fileName}${COLORS.reset}:${COLORS.function}${functionName}${COLORS.reset} ${message}`;
+    const formattedMessage = `${COLORS.folder}[${folderName}]${COLORS.reset}/${COLORS.file}${fileName}${COLORS.reset}:${COLORS.function}${functionName}${COLORS.reset}\n ${message}`;
 
     debugInstance(formattedMessage, ...args);
   };
