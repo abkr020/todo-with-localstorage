@@ -25,7 +25,10 @@ const createDebug = (namespace: string) => {
         const match = stackLines[2]?.match(/at (.+?) \((.+?):\d+:\d+\)/);
         if (match) {
           functionName = match[1];
-          const filePath = match[2];
+          let filePath = match[2];
+
+          // Remove query parameters (e.g., ?t=1738238037352) from the file path
+          filePath = filePath.split('?')[0];
 
           // Extract file name and folder name using string manipulation
           const parts = filePath.split('/');
