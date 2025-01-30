@@ -2,8 +2,9 @@ import React, { useState } from 'react'
 import InputTodo from './InputTodo'
 import TodoList from './TodoList'
 import debugLib from 'debug';
+import createDebug from '../debugging/debug'
 
-const debug = debugLib('app:todo')
+const debug = createDebug('app:todo')
 
 interface ITodos {
     PropertyTodo: string;

@@ -1,7 +1,8 @@
 import React from 'react'
 import './styles/DisplayTodo.css'
 import debugLib from 'debug';
-const debug = debugLib('app:Display Todo single')
+import createDebug from '../debugging/debug'
+const debug = createDebug('app:Display Todo single')
 interface SingleTodoProps {
     singleTodo: string;
     id:number;
