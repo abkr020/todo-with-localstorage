@@ -4,6 +4,14 @@ import debugLib from 'debug';
 // Base namespace for your application
 const APP_NAMESPACE = 'app';
 
+// ANSI color codes for console output
+const COLORS = {
+  folder: '\x1b[34m', // Blue
+  file: '\x1b[32m', // Green
+  function: '\x1b[36m', // Cyan
+  reset: '\x1b[0m' // Reset
+};
+
 /**
  * Create a debug logger for a specific namespace.
  */
@@ -34,20 +42,25 @@ const createDebug = (namespace: string) => {
           const parts = filePath.split('/');
           fileName = parts.pop() || 'unknown';
           folderName = parts.pop() || 'unknown';
+
+          // Remove file extension (e.g., .tsx)
+          fileName = fileName.replace(/\.[^/.]+$/, '');
         }
       }
     } catch (e) {
       console.warn('Error parsing stack trace for function name:', e);
     }
 
-    // Format the log with the function name, folder, and file name
-    debugInstance(`[${folderName}/${fileName}:${functionName}] ${message}`, ...args);
+    // Format the log with colors for folder, file, and function name
+    const formattedMessage = `${COLORS.folder}[${folderName}]${COLORS.reset}/${COLORS.file}${fileName}${COLORS.reset}:${COLORS.function}${functionName}${COLORS.reset} ${message}`;
+
+    debugInstance(formattedMessage, ...args);
   };
 };
 
 // Create a default log instance using the base namespace
 const log = createDebug(APP_NAMESPACE);
 
-// Export both `log` and `createDebug` for flexible use
+// Export both `createDebug` and `log` for flexible use
 export { createDebug, log };
 export default log;
