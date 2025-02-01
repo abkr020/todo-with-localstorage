@@ -5,7 +5,8 @@ import { SingleTodoObject } from '../model/SingleTodoModel';
 
 interface SingleTodoProps {
     singleTodo: SingleTodoObject,
-    handleTodoDone:(aid:number)=>void
+    handleTodoDone:(aid:number)=>void,
+    handleTodoDelete:(aid:number)=>void
 }
 
 const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
@@ -27,8 +28,8 @@ const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
             </div>
             <div className={`display__todo__buttons ${process.env.VITE_NODE_ENV ? 'dev-mode' : ''}`}>
                 <button>edit</button>
-                <button>delete</button>
-                <button onClick={() => props.handleTodoDone(props.singleTodo.id)}>done</button>
+                <button onClick={()=>props.handleTodoDelete(props.singleTodo.id)}>delete</button>
+                <button onClick={() => props.handleTodoDone(props.singleTodo.id)}>{props.singleTodo.isDone ? "notdone": "done"}</button>
             </div>
             {/* <div>
                 ak
