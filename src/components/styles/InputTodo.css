@@ -1,7 +1,12 @@
-.input__todo{
+.input__todo {
     background-color: black;
 
 }
-.input__todo__form{
-border: 2px dashed tomato;    /* background-color: white; */
+
+.input__todo__form {
+    display: flex;
+    justify-content: center;
+    border: 2px dashed tomato;
+    /* background-color: white; */
+
 }
