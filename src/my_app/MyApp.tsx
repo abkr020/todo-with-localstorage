@@ -1,7 +1,7 @@
 import React from 'react'
-import Navbar from './Navbar'
-import InputTodo from './InputTodo'
-import Todo from './Todo'
+import Navbar from '../components/Navbar'
+import InputTodo from '../components/InputTodo'
+import Todo from '../components/Todo'
 
 const MyApp = () => {
     return (
@@ -9,7 +9,7 @@ const MyApp = () => {
             <Navbar />
             <Todo />
             <div>
-
+                hi
             </div>
         </>
     )

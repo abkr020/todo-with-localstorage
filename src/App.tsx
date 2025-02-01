@@ -1,7 +1,7 @@
 // import React from 'react';
 import log from './debugging/debug'
 // import './App.css'
-import MyApp from './components/MyApp'
+import MyApp from './my_app/MyApp'
 
 const App:React.FC = ()=> {
 log("here")
