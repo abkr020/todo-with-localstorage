@@ -1,7 +1,7 @@
 .input__todo {
     /* background-color: black; */
     /* border: 2px solid olivedrab; */
-    /* border-radius: 12px; */
+    border-radius: 12px;
 }
 
 .input__todo__form {
@@ -9,10 +9,11 @@
     justify-content: center;
     /* border: 2px dashed tomato; */
     /* background-color: white; */
+    
 
 }
 .input__todo__add__button{
-    /* border-radius: 12px; */
+    border-radius: 12px;
 }
 
 .input__todo__form.dev-mode {

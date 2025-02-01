@@ -14,13 +14,13 @@ const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
         props.singleTodo='ak'
     }
     return (
-        <div className='display__todo'>
+        <div className={`display__todo ${process.env.VITE_NODE_ENV ? 'dev-mode' : ''}`}>
             {/* <strong>here</strong> */}
-            <div className='display__todo__single'>
+            <div className={`display__todo__single ${process.env.VITE_NODE_ENV ? 'dev-mode' : ''}`}>
                 {/* {props.id} */}
                 {props.singleTodo}
             </div>
-            <div className='display__todo__buttons'>
+            <div className={`display__todo__buttons ${process.env.VITE_NODE_ENV ? 'dev-mode' : ''}`}>
                 <button>edit</button>
                 <button>cut</button>
                 <button onClick={()=>handleDone(props.id)}>done</button>
