@@ -1,5 +1,5 @@
-export interface Todo{
+export interface SingleTodoObject{
     id:number,
-    todo:string,
+    text:string,
     isDone:boolean
 }
