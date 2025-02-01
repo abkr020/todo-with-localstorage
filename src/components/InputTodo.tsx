@@ -9,7 +9,7 @@ interface InputTodoProps {
 }
 const InputTodo: React.FC<InputTodoProps> = (props) => {
 
-    const isDevMode = import.meta.env.MODE === 'development';
+    const isDevMode = process.env.NODE_ENV === 'development';
 
 
     return (
