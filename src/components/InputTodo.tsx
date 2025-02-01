@@ -16,7 +16,7 @@ const InputTodo: React.FC<InputTodoProps> = (props) => {
 
 
             <form className='input__todo__form' onSubmit={props.handleSubmit}>
-fweoh
+
                 <input
                     className='input__todo'
                     type="text"

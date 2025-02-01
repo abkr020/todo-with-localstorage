@@ -1,6 +1,7 @@
 .input__todo {
     background-color: black;
-
+    border: 2px solid olivedrab;
+    border-radius: 12px;
 }
 
 .input__todo__form {
@@ -9,4 +10,7 @@
     border: 2px dashed tomato;
     /* background-color: white; */
 
+}
+button{
+    border-radius: 12px;
 }
