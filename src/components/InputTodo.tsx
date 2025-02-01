@@ -24,7 +24,7 @@ const InputTodo: React.FC<InputTodoProps> = (props) => {
                     onChange={(e) => { props.settodo(e.target.value) }} // Use local state for input
                     placeholder="Enter todo"
                 />
-                <button type="submit">Add</button>
+                <button className='input__todo__add__button' type="submit">Add</button>
             </form>
         </>
 
