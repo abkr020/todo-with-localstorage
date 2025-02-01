@@ -2,14 +2,21 @@ import React from 'react'
 // import debugLib form 'debug'
 
 import '../components/styles/InputTodo.css'
+import log from '../debugging/debug';
+
+
+// Now you can access them using process.env
+// console.log("here",process.env.VITE_API_URL);
 interface InputTodoProps {
     todo: string;
     settodo: React.Dispatch<React.SetStateAction<string>>;
-    handleSubmit:(e:React.FormEvent)=>void;
+    handleSubmit: (e: React.FormEvent) => void;
 }
 const InputTodo: React.FC<InputTodoProps> = (props) => {
+log("here",process.env.VITE_API_URL);
+log("here one",process.env.VITE_NODE_ENV);
+log("here check",process.env.VITE_CHECK);
 
-   
 
     return (
         <>
