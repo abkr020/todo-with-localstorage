@@ -11,7 +11,7 @@ const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
     const a= 't';
     const handleDone = (id:number)=>{
         log("here a",id);
-        props.singleTodo='ak'
+        // props.singleTodo='ak'
     }
     return (
         <div className={`display__todo ${process.env.VITE_NODE_ENV ? 'dev-mode' : ''}`}>
@@ -22,7 +22,7 @@ const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
             </div>
             <div className={`display__todo__buttons ${process.env.VITE_NODE_ENV ? 'dev-mode' : ''}`}>
                 <button>edit</button>
-                <button>cut</button>
+                <button>delete</button>
                 <button onClick={()=>handleDone(props.id)}>done</button>
             </div>
             {/* <div>

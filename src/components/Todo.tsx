@@ -4,7 +4,7 @@ import TodoList from './TodoList'
 import log from '../debugging/debug'
 
 interface ITodos {
-    PropertyTodo: string;
+    ProperTodo: string;
 }
 const Todo: React.FC = () => {
 
@@ -15,14 +15,14 @@ const Todo: React.FC = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         log("handle submit")
-        setTodos([...todos,{PropertyTodo:todo}])
+        setTodos([...todos,{ProperTodo:todo}])
         setTodo(''); // Clear the input after submit
 
     };
     return (
         <div>
             <InputTodo todo={todo} settodo={setTodo} handleSubmit={handleSubmit} />
-            <TodoList todos={todos}/>
+            <TodoList todos={todos} />
         </div>
     )
 }

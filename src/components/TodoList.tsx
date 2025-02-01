@@ -2,7 +2,7 @@ import React from 'react'
 import DisplayTodo from './DisplayTodo';
 
 interface ITodosList {
-    PropertyTodo: string;
+    ProTodo: string;
   }
   
   interface TodoListProps {
@@ -12,11 +12,10 @@ interface ITodosList {
 const TodoList:React.FC<TodoListProps> = (props) => {
   return (
     <div>
-      my all to so
       <ul>
         {props.todos.map((todo, index) => (
           <li key={index}>
-            <DisplayTodo id={index} singleTodo={todo.PropertyTodo}/>
+            <DisplayTodo id={index} singleTodo={todo.ProTodo}/>
           </li> // Access and display Itodo from each ITodos object
         //   <li key={index}>{todo.PropertyTodo}</li> // Access and display Itodo from each ITodos object
         ))}
