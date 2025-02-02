@@ -1,21 +1,55 @@
 .input__todo {
-    /* background-color: black; */
-    /* border: 2px solid olivedrab; */
     border-radius: 12px;
+    border: 2px solid #fbc02d;
+    padding: 8px 15px;
+    background-color: #fff8e1;
+    transition: all 0.3s ease;
 }
 
 .input__todo__form {
     display: flex;
     justify-content: center;
-    /* border: 2px dashed tomato; */
-    /* background-color: white; */
-    
-
+    gap: 10px;
+    padding: 5px;
+    background-color: #f1f8e9;
+    border-radius: 8px;
 }
-.input__todo__add__button{
+
+.input__todo__add__button {
     border-radius: 12px;
+    padding: 8px 16px;
+    font-size: 14px;
+    background-color: #fbc02d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.input__todo__add__button:hover {
+    background-color: #f57f17;
+    transform: scale(1.05);
 }
 
 .input__todo__form.dev-mode {
     border: 2px dashed rgb(235, 238, 23);
+}
+
+body.dark-mode .input__todo {
+    border: 2px solid #ffeb3b;
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark-mode .input__todo__form {
+    background-color: #424242;
+}
+
+body.dark-mode .input__todo__add__button {
+    background-color: #ffeb3b;
+    color: #333;
+}
+
+body.dark-mode .input__todo__add__button:hover {
+    background-color: #c8b900;
 }

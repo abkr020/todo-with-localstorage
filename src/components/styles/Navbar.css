@@ -1,4 +1,3 @@
-/* General Navbar styles */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -8,14 +7,12 @@
     border-bottom: 1px solid #ddd;
 }
 
-/* Left section (Logo) */
 .navbar__left .navbar__logo h1 {
     font-size: 24px;
     margin: 0;
     color: #333;
 }
 
-/* Right section (Buttons) */
 .navbar__right {
     display: flex;
     gap: 15px;
@@ -29,14 +26,13 @@
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, border 0.3s;
 }
 
 .navbar__button:hover {
     background-color: #45a049;
 }
 
-/* Dark Mode */
 body.dark-mode {
     background-color: #121212;
     color: white;
@@ -44,13 +40,20 @@ body.dark-mode {
 
 body.dark-mode .navbar {
     background-color: #333;
-    border-bottom: 1px solid #444;
+    border-bottom: 1px solid yellow;
+}
+
+body.dark-mode .navbar__left .navbar__logo h1 {
+    color: yellow;
 }
 
 body.dark-mode .navbar__button {
-    background-color: #555;
+    background-color: transparent;
+    border: 2px solid yellow;
+    color: yellow;
 }
 
 body.dark-mode .navbar__button:hover {
-    background-color: #666;
+    background-color: yellow;
+    color: #333;
 }
