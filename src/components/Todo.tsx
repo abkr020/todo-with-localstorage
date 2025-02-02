@@ -17,8 +17,6 @@ const Todo: React.FC = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const debugIndex = process.env.VITE_NODE_ENV === 'development' ? todos.length + 1 : undefined;
-        log("debug in ded", process.env.NODE_ENV)
-        log("debug in ded", process.env.NODE_ENV_TEST)
         log("debug in ded", debugIndex)
         setTodos([...todos, { id: Date.now(), text: todo, isDone: false, debug_index: debugIndex }])
         log("handle submit", todos)

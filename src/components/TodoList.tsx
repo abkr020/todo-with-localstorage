@@ -41,6 +41,7 @@ const TodoList: React.FC<TodoListProps> = (props) => {
           .sort((a: { isDone: boolean }, b: { isDone: boolean }) => Number(a.isDone) - Number(b.isDone))
           .map((todo, index) => (
             <li key={index}>
+              <span>{index}</span>
               <DisplayTodo singleTodo={todo} handleTodoDone={handleTodoDone} handleTodoDelete={handleTodoDelete} handleTodoEdit={handleTodoEdit}/>
             </li> // Access and display Itodo from each ITodos object
             //   <li key={index}>{todo.PropertyTodo}</li> // Access and display Itodo from each ITodos object

@@ -12,10 +12,10 @@ interface SingleTodoProps {
 
 const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
     const [checkEdit, setCheckEdit] = useState<boolean>(false)
-    const [editValue, setEditvalue] = useState<string>(props.singleTodo.text)
-    const handleTodoEdits = (id: number) => {
+    const [editValue, setEditvalue] = useState<string>(props.singleTodo.text + props.singleTodo.debug_index)
+    const handleTodoEdits = (todoobj: object) => {
         setCheckEdit(checkEdit ? false : true)
-        log("edit", id)
+        log("edit todo", todoobj)
     }
     const handleOnChangeEdit = (e: React.ChangeEvent<HTMLInputElement>,debug_index?:number)=>{
         log("change of todo text",debug_index)
@@ -48,7 +48,7 @@ const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
                     </s> : ""}
             </div>
             <div className='display__todo__buttons'>
-                <button onClick={() => handleTodoEdits(props.singleTodo.id)}>edit</button>
+                <button onClick={() => handleTodoEdits(props.singleTodo)}>edit</button>
                 <button onClick={() => props.handleTodoDelete(props.singleTodo.id)}>delete</button>
                 <button onClick={() => props.handleTodoDone(props.singleTodo.id)}>{props.singleTodo.isDone ? "completed" : "done"}</button>
             </div>
