@@ -14,9 +14,9 @@ interface SingleTodoProps {
 }
 
 const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
-    const inputref = useRef<HTMLInputElement>(null)
+    const inputRef = useRef<HTMLInputElement>(null)
     const [checkEdit, setCheckEdit] = useState<boolean>(false)
-    const [editValue, setEditvalue] = useState<string>(props.singleTodo.text + props.singleTodo.debug_index)
+    const [editValue, setEditvalue] = useState<string>("")
     log("initial value of", editValue)
     const handleTodoEdits = (todoobj: object) => {
         setCheckEdit(checkEdit ? false : true)
@@ -46,7 +46,9 @@ const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
 
     }
     useEffect(() => {
-        inputref.current?.focus();
+        inputRef.current?.focus();
+        inputRef.current?.setSelectionRange(0, editValue.length); // Select all text
+
     }, [checkEdit])
     return (
         <div className={`display__todo ${process.env.VITE_NODE_ENV ? 'dev-mode' : ''} ${props.singleTodo.isDone ? 'completed__todo' : ''}`}>
@@ -58,7 +60,7 @@ const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
                     <form action="" onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleTodoSubmit(e, props.singleTodo.id)}>
 
                         <input
-                            ref={inputref}
+                            ref={inputRef}
                             value={editValue}
                             onChange={(e) => handleOnChangeEdit(e)}
                         // onSubmit={() => handleTodoSubmit(props.singleTodo.id)}
