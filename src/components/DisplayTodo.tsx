@@ -15,6 +15,9 @@ const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
     const [editValue, setEditvalue] = useState<string>(props.singleTodo.text + props.singleTodo.debug_index)
     const handleTodoEdits = (todoobj: object) => {
         setCheckEdit(checkEdit ? false : true)
+         if (!checkEdit) {
+        setEditvalue(props.singleTodo.text);  // Ensure that the editValue is set correctly
+    }
         log("edit todo", todoobj)
     }
     const handleOnChangeEdit = (e: React.ChangeEvent<HTMLInputElement>,debug_index?:number)=>{
