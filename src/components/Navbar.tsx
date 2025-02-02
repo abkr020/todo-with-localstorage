@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './styles/Navbar.css'
 import log from '../debugging/debug';
+import GitButton from './Navbar/GitButton';
 
 
 const Navbar: React.FC = () => {
@@ -56,11 +57,7 @@ const Navbar: React.FC = () => {
                 <button onClick={handleClearLocalStorage} className="navbar__button">
                     {"Clear Local Storage".toUpperCase()}
                 </button>
-                <a href="https://github.com/abkr020/todo-with-localstorage" target="_blank" rel="noopener noreferrer">
-                    <button className="navbar__button">
-                        {"Git Repository".toUpperCase()}
-                    </button>
-                </a>
+                <GitButton />
                 <button onClick={handleToggleTheme} className="navbar__button">
                     {theme=="dark" ? "DARK":"LIGHT"}
 
