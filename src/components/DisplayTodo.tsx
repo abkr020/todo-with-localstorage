@@ -28,12 +28,12 @@ const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
     }
 
 
-    const handleTodoSubmit = (e: React.ChangeEvent<HTMLInputElement>, editId: number) => {
+    const handleTodoSubmit = (e: React.FormEvent<HTMLFormElement>, editId: number) => {
         e.preventDefault();
         log("all todo s", props.todos)
         props.setTodos(props.todos.map(todo => todo.id === editId ? { ...todo, text: editValue } : todo))
         log("all todo s after change", props.todos)
-        setCheckEdit(false);
+        setCheckEdit(false)
 
     }
 
@@ -51,7 +51,7 @@ const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
             <div className={`display__todo__single `}>
                 {/* {props.id} */}
                 {checkEdit ?
-                    <form action="" onSubmit={(e) => handleTodoSubmit(e, props.singleTodo.id)}>
+                    <form action="" onSubmit={(e:React.FormEvent<HTMLFormElement>) => handleTodoSubmit(e, props.singleTodo.id)}>
 
                         <input
                             value={editValue}
