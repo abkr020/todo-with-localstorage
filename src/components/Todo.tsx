@@ -12,19 +12,23 @@ const Todo: React.FC = () => {
         // Load stored todos from localStorage on initial render
         const savedTodos = localStorage.getItem("todos");
         return savedTodos ? JSON.parse(savedTodos) : [];
-      });    log("value of todo", todos)
+    }); log("value of todo", todos)
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        setTodos([...todos,{id:Date.now(),text:todo,isDone:false}])
-        log("handle submit",todos)
+        const debugIndex = process.env.VITE_NODE_ENV === 'development' ? todos.length + 1 : undefined;
+        log("debug in ded", process.env.NODE_ENV)
+        log("debug in ded", process.env.NODE_ENV_TEST)
+        log("debug in ded", debugIndex)
+        setTodos([...todos, { id: Date.now(), text: todo, isDone: false, debug_index: debugIndex }])
+        log("handle submit", todos)
 
         setTodo(''); // Clear the input after submit
 
     };
     useEffect(() => {
         localStorage.setItem("todos", JSON.stringify(todos));
-      }, [todos]);
+    }, [todos]);
     return (
         <div>
             <InputTodo todo={todo} settodo={setTodo} handleSubmit={handleSubmit} />

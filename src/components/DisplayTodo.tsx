@@ -17,14 +17,15 @@ const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
         setCheckEdit(checkEdit ? false : true)
         log("edit", id)
     }
-    const handleOnChangeEdit = (e: React.ChangeEvent<HTMLInputElement>)=>{
-        log("ok")
+    const handleOnChangeEdit = (e: React.ChangeEvent<HTMLInputElement>,debug_index?:number)=>{
+        log("change of todo text",debug_index)
         setEditvalue(e.target.value)
 
     }
     return (
         <div className={`display__todo ${process.env.VITE_NODE_ENV ? 'dev-mode' : ''} ${props.singleTodo.isDone ? 'completed__todo' : ''}`}>
             {/* <strong>here</strong> */}
+            {props.singleTodo.debug_index}
             <div className={`display__todo__single `}>
                 {/* {props.id} */}
                 {checkEdit ?
