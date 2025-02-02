@@ -15,7 +15,7 @@ const InputTodo: React.FC<InputTodoProps> = (props) => {
         <>
 
 
-<form className={`input__todo__form ${process.env.VITE_NODE_ENV ? 'dev-mode' : ''}`} onSubmit={props.handleSubmit}>
+            <form className={`input__todo__form ${process.env.VITE_NODE_ENV ? 'dev-mode' : ''}`} onSubmit={props.handleSubmit}>
 
                 <input
                     className='input__todo'

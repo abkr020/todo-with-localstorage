@@ -1,46 +1,74 @@
+/* Base styles */
 .display__todo {
     display: flex;
-    /* justify-content: space-evenly; */
     justify-content: space-between;
-    /* padding: 1rem; */
     padding-left: 1rem;
     margin: 0.5rem;
     align-items: center;
-    border: 1px solid;
+    border: 1px solid #ddd; /* Default light border */
+    background-color: #fff; /* Default light background */
 }
 
 .display__todo__single {
+    /* Add styles if needed for individual todo items */
 }
 
 .display__todo__buttons {
-    
+    display: flex;
+    align-items: center;
 }
+
 .display__todo__buttons button {
-    /* border: 2px solid magenta; */
     margin: 1rem;
     padding: 0.5rem;
     cursor: pointer;
+    border: 2px solid #ddd; /* Default border color */
+    background-color: transparent; /* Transparent button background */
+    color: #333; /* Dark text for light mode */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
 }
-.completed__todo{
-    background-color: green;
+
+.completed__todo {
+    /* background-color: lightgreen; */
 }
 
+/* Dark Mode Styles */
+body.dark-mode .display__todo {
+    background-color: #555; /* Dark background for todo item */
+    color: #fff; /* White text in dark mode */
+    border: 1px solid yellow; /* Yellow border */
+}
 
-/* development */
+body.dark-mode .completed__todo {
+    background-color: #333; /* Darker gray for completed todo items */
+    color: #fff; /* White text for completed items */
+}
 
+body.dark-mode .display__todo__buttons button {
+    border: 2px solid yellow; /* Yellow border for buttons */
+    background-color: transparent; /* Keep background transparent */
+    color: yellow; /* Yellow text color */
+}
+
+/* Hover effect for buttons */
+body.dark-mode .display__todo__buttons button:hover {
+    background-color: yellow; /* Yellow background on hover */
+    color: #333; /* Dark text on hover */
+}
+
+/* Development Mode Styles (optional, for debugging) */
 .display__todo.dev-mode {
-    /* border: 2px dashed tomato; */
-
+    border: 2px dashed tomato;
 }
+
 .display__todo__single.dev-mode {
-    /* border: 2px solid oldlace; */
-
+    border: 2px solid oldlace;
 }
+
 .display__todo__buttons.dev-mode {
-    /* border: 2px solid magenta; */
-
+    border: 2px solid magenta;
 }
-.display__todo__buttons.dev-mode button {
-    /* border: 2px solid magenta; */
 
+.display__todo__buttons.dev-mode button {
+    border: 2px solid magenta;
 }
