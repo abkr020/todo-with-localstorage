@@ -1,5 +1,5 @@
 export interface SingleTodoObject{
-    id:number,
+    readonly id:number,
     text:string,
     isDone:boolean
 }

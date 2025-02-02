@@ -18,7 +18,9 @@
     padding: 0.5rem;
     cursor: pointer;
 }
-
+.completed__todo{
+    background-color: green;
+}
 
 
 /* development */

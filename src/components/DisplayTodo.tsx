@@ -13,9 +13,9 @@ const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
     const a = 't';
   
     return (
-        <div className={`display__todo ${process.env.VITE_NODE_ENV ? 'dev-mode' : ''}`}>
+        <div className={`display__todo ${process.env.VITE_NODE_ENV ? 'dev-mode' : ''} ${props.singleTodo.isDone ? 'completed__todo' : ''}`}>
             {/* <strong>here</strong> */}
-            <div className={`display__todo__single ${process.env.VITE_NODE_ENV ? 'dev-mode' : ''}`}>
+            <div className={`display__todo__single `}>
                 {/* {props.id} */}
                 {props.singleTodo.text}
                 {process.env.VITE_NODE_ENV ?
@@ -26,10 +26,10 @@ const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
 
                     </s> : ""}
             </div>
-            <div className={`display__todo__buttons ${process.env.VITE_NODE_ENV ? 'dev-mode' : ''}`}>
+            <div className='display__todo__buttons'>
                 <button>edit</button>
                 <button onClick={()=>props.handleTodoDelete(props.singleTodo.id)}>delete</button>
-                <button onClick={() => props.handleTodoDone(props.singleTodo.id)}>{props.singleTodo.isDone ? "notdone": "done"}</button>
+                <button onClick={() => props.handleTodoDone(props.singleTodo.id)}>{props.singleTodo.isDone ? "completed": "done"}</button>
             </div>
             {/* <div>
                 ak
