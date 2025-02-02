@@ -1,22 +1,46 @@
 .display__todo {
-    border: 2px dashed tomato;
     display: flex;
     /* justify-content: space-evenly; */
     justify-content: space-between;
-    padding: 1rem;
+    /* padding: 1rem; */
+    padding-left: 1rem;
+    margin: 0.5rem;
+    align-items: center;
+    border: 1px solid;
 }
 
 .display__todo__single {
-    border: 2px solid oldlace;
 }
 
 .display__todo__buttons {
-    border: 2px solid magenta;
     
 }
 .display__todo__buttons button {
-    border: 2px solid magenta;
+    /* border: 2px solid magenta; */
     margin: 1rem;
     padding: 0.5rem;
     cursor: pointer;
+}
+.completed__todo{
+    background-color: green;
+}
+
+
+/* development */
+
+.display__todo.dev-mode {
+    /* border: 2px dashed tomato; */
+
+}
+.display__todo__single.dev-mode {
+    /* border: 2px solid oldlace; */
+
+}
+.display__todo__buttons.dev-mode {
+    /* border: 2px solid magenta; */
+
+}
+.display__todo__buttons.dev-mode button {
+    /* border: 2px solid magenta; */
+
 }

@@ -1,29 +1,89 @@
-import React from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './styles/DisplayTodo.css'
 import log from '../debugging/debug';
+import { SingleTodoObject } from '../model/SingleTodoModel';
 
 interface SingleTodoProps {
-    singleTodo: string;
-    id:number;
+    singleTodo: SingleTodoObject,
+    todos: SingleTodoObject[],
+    setTodos: React.Dispatch<React.SetStateAction<SingleTodoObject[]>>,
+
+    handleTodoDone: (aid: number) => void,
+    handleTodoDelete: (aid: number) => void
+    handleTodoEdit: (aid: number) => void
 }
 
 const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
-    const a= 't';
-    const handleDone = (id:number)=>{
-        log("here a",id);
-        props.singleTodo='ak'
+    const inputRef = useRef<HTMLInputElement>(null)
+    const [checkEdit, setCheckEdit] = useState<boolean>(false)
+    const [editValue, setEditvalue] = useState<string>("")
+    log("initial value of", editValue)
+    const handleTodoEdits = (todoobj: object) => {
+        setCheckEdit(checkEdit ? false : true)
+        if (!checkEdit) {
+            setEditvalue(props.singleTodo.text);  // Ensure that the editValue is set correctly
+            // props.setTodos
+            log("new value", editValue)
+        }
+        log("edit todo", todoobj)
     }
+
+
+    const handleTodoSubmit = (e: React.FormEvent<HTMLFormElement>, editId: number) => {
+        e.preventDefault();
+        log("all todo s", props.todos)
+        props.setTodos(props.todos.map(todo => todo.id === editId ? { ...todo, text: editValue } : todo))
+        log("all todo s after change", props.todos)
+        setCheckEdit(false)
+
+    }
+
+    const handleOnChangeEdit = (e: React.ChangeEvent<HTMLInputElement>, debug_index?: number) => {
+        setEditvalue(e.target.value)
+        log("change of todo text", debug_index)
+        log("new value on change", editValue)
+
+
+    }
+    useEffect(() => {
+        inputRef.current?.focus();
+        inputRef.current?.setSelectionRange(0, editValue.length); // Select all text
+
+    }, [checkEdit])
     return (
-        <div className='display__todo'>
+        <div className={`display__todo ${process.env.VITE_NODE_ENV ? 'dev-mode' : ''} ${props.singleTodo.isDone ? 'completed__todo' : ''}`}>
             {/* <strong>here</strong> */}
-            <div className='display__todo__single'>
+            {props.singleTodo.debug_index}
+            <div className={`display__todo__single `}>
                 {/* {props.id} */}
-                {props.singleTodo}
+                {checkEdit ?
+                    <form action="" onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleTodoSubmit(e, props.singleTodo.id)}>
+
+                        <input
+                            ref={inputRef}
+                            value={editValue}
+                            onChange={(e) => handleOnChangeEdit(e)}
+                        // onSubmit={() => handleTodoSubmit(props.singleTodo.id)}
+                        />
+                    </form>
+
+                    // </input>
+                    :
+                    <span>{props.singleTodo.text}</span>
+                }
+                {/* {props.singleTodo.text} */}
+                {process.env.VITE_NODE_ENV ?
+                    <s>
+                        {props.singleTodo.id}
+                        {props.singleTodo.isDone ? "done" : "not"}
+                        {/* {log("ak",props.singleTodo.isDone)} */}
+
+                    </s> : ""}
             </div>
             <div className='display__todo__buttons'>
-                <button>edit</button>
-                <button>cut</button>
-                <button onClick={()=>handleDone(props.id)}>done</button>
+                <button onClick={() => handleTodoEdits(props.singleTodo)}>edit</button>
+                <button onClick={() => props.handleTodoDelete(props.singleTodo.id)}>delete</button>
+                <button onClick={() => props.handleTodoDone(props.singleTodo.id)}>{props.singleTodo.isDone ? "completed" : "done"}</button>
             </div>
             {/* <div>
                 ak
