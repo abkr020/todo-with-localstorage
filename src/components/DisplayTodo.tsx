@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './styles/DisplayTodo.css'
 import log from '../debugging/debug';
 import { SingleTodoObject } from '../model/SingleTodoModel';
@@ -14,6 +14,7 @@ interface SingleTodoProps {
 }
 
 const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
+    const inputref = useRef<HTMLInputElement>(null)
     const [checkEdit, setCheckEdit] = useState<boolean>(false)
     const [editValue, setEditvalue] = useState<string>(props.singleTodo.text + props.singleTodo.debug_index)
     log("initial value of", editValue)
@@ -44,6 +45,9 @@ const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
 
 
     }
+    useEffect(() => {
+        inputref.current?.focus();
+    }, [checkEdit])
     return (
         <div className={`display__todo ${process.env.VITE_NODE_ENV ? 'dev-mode' : ''} ${props.singleTodo.isDone ? 'completed__todo' : ''}`}>
             {/* <strong>here</strong> */}
@@ -51,9 +55,10 @@ const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
             <div className={`display__todo__single `}>
                 {/* {props.id} */}
                 {checkEdit ?
-                    <form action="" onSubmit={(e:React.FormEvent<HTMLFormElement>) => handleTodoSubmit(e, props.singleTodo.id)}>
+                    <form action="" onSubmit={(e: React.FormEvent<HTMLFormElement>) => handleTodoSubmit(e, props.singleTodo.id)}>
 
                         <input
+                            ref={inputref}
                             value={editValue}
                             onChange={(e) => handleOnChangeEdit(e)}
                         // onSubmit={() => handleTodoSubmit(props.singleTodo.id)}
