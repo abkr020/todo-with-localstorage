@@ -8,9 +8,6 @@ const MyApp = () => {
         <>
             <Navbar />
             <Todo />
-            <div>
-                hi
-            </div>
         </>
     )
 }

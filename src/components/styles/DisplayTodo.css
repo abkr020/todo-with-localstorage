@@ -2,8 +2,11 @@
     display: flex;
     /* justify-content: space-evenly; */
     justify-content: space-between;
-    padding: 1rem;
+    /* padding: 1rem; */
+    padding-left: 1rem;
+    margin: 0.5rem;
     align-items: center;
+    border: 1px solid;
 }
 
 .display__todo__single {
@@ -26,7 +29,7 @@
 /* development */
 
 .display__todo.dev-mode {
-    border: 2px dashed tomato;
+    /* border: 2px dashed tomato; */
 
 }
 .display__todo__single.dev-mode {
