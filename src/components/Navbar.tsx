@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import './styles/Navbar.css'
 import log from '../debugging/debug';
 
 
 const Navbar: React.FC = () => {
+    const [theme, setTheme] = useState<string>("");
+
     const handleClearLocalStorage = () => {
         localStorage.clear();
         alert("LocalStorage has been cleared!");
@@ -12,53 +14,60 @@ const Navbar: React.FC = () => {
     const handleToggleTheme = () => {
         if (document.body.classList.contains('dark-mode')) {
             document.body.classList.remove('dark-mode');
+            setTheme("light")
             localStorage.setItem("theme", "light");
         } else {
             document.body.classList.add('dark-mode');
+            setTheme("dark")
             localStorage.setItem("theme", "dark");
         }
     }
-    const sTheme = localStorage.getItem("theme");
-    log("the",sTheme)
-    
+
     useEffect(() => {
         const savedTheme = localStorage.getItem("theme");
-        log("the use",sTheme)
-        if(sTheme==null){
-            log("the use if" ,sTheme)
+        log("the use", savedTheme)
+        if (savedTheme == null) {
+            log("the use if", savedTheme)
             localStorage.setItem("theme", "dark");
-
             document.body.classList.add('dark-mode');
+            setTheme("dark")
+
         }
         if (savedTheme === "dark") {
             document.body.classList.add('dark-mode');
+            setTheme("dark")
+
         } else {
             document.body.classList.remove('dark-mode');
+            setTheme("light")
+
         }
     }, []);
-    
     return (
         <div className="navbar">
 
-        <div className="navbar__left">
-            <div className="navbar__logo">
-                <h1>Logo</h1>
+            <div className="navbar__left">
+                <div className="navbar__logo">
+                    <h1>कार्य सूची</h1>
+                </div>
             </div>
-        </div>
 
-        <div className="navbar__right">
-            <button onClick={handleClearLocalStorage} className="navbar__button">
-                Clear LocalStorage
-            </button>
-            <button className="navbar__button">
-                View Git Repository
-            </button>
-            <button onClick={handleToggleTheme} className="navbar__button">
-                Toggle Dark/Light Mode
-            </button>
-        </div>
+            <div className="navbar__right">
+                <button onClick={handleClearLocalStorage} className="navbar__button">
+                    {"Clear Local Storage".toUpperCase()}
+                </button>
+                <a href="https://github.com/abkr020/todo-with-localstorage" target="_blank" rel="noopener noreferrer">
+                    <button className="navbar__button">
+                        {"Git Repository".toUpperCase()}
+                    </button>
+                </a>
+                <button onClick={handleToggleTheme} className="navbar__button">
+                    {theme=="dark" ? "DARK":"LIGHT"}
 
-    </div>
+                </button>
+            </div>
+
+        </div>
     )
 }
 
