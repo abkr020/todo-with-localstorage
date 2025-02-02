@@ -5,6 +5,9 @@ import { SingleTodoObject } from '../model/SingleTodoModel';
 
 interface SingleTodoProps {
     singleTodo: SingleTodoObject,
+    todos: SingleTodoObject[],
+    setTodos: React.Dispatch<React.SetStateAction<SingleTodoObject[]>>,
+
     handleTodoDone: (aid: number) => void,
     handleTodoDelete: (aid: number) => void
     handleTodoEdit: (aid: number) => void
@@ -13,16 +16,32 @@ interface SingleTodoProps {
 const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
     const [checkEdit, setCheckEdit] = useState<boolean>(false)
     const [editValue, setEditvalue] = useState<string>(props.singleTodo.text + props.singleTodo.debug_index)
+    log("initial value of", editValue)
     const handleTodoEdits = (todoobj: object) => {
         setCheckEdit(checkEdit ? false : true)
-         if (!checkEdit) {
-        setEditvalue(props.singleTodo.text);  // Ensure that the editValue is set correctly
-    }
+        if (!checkEdit) {
+            setEditvalue(props.singleTodo.text);  // Ensure that the editValue is set correctly
+            // props.setTodos
+            log("new value", editValue)
+        }
         log("edit todo", todoobj)
     }
-    const handleOnChangeEdit = (e: React.ChangeEvent<HTMLInputElement>,debug_index?:number)=>{
-        log("change of todo text",debug_index)
+
+
+    const handleTodoSubmit = (e: React.ChangeEvent<HTMLInputElement>, editId: number) => {
+        e.preventDefault();
+        log("all todo s", props.todos)
+        props.setTodos(props.todos.map(todo => todo.id === editId ? { ...todo, text: editValue } : todo))
+        log("all todo s after change", props.todos)
+        setCheckEdit(false);
+
+    }
+
+    const handleOnChangeEdit = (e: React.ChangeEvent<HTMLInputElement>, debug_index?: number) => {
         setEditvalue(e.target.value)
+        log("change of todo text", debug_index)
+        log("new value on change", editValue)
+
 
     }
     return (
@@ -32,10 +51,14 @@ const DisplayTodo: React.FC<SingleTodoProps> = (props) => {
             <div className={`display__todo__single `}>
                 {/* {props.id} */}
                 {checkEdit ?
-                    <input
-                        value={editValue}
-                        onChange={(e)=>handleOnChangeEdit(e)}
-                    />
+                    <form action="" onSubmit={(e) => handleTodoSubmit(e, props.singleTodo.id)}>
+
+                        <input
+                            value={editValue}
+                            onChange={(e) => handleOnChangeEdit(e)}
+                        // onSubmit={() => handleTodoSubmit(props.singleTodo.id)}
+                        />
+                    </form>
 
                     // </input>
                     :

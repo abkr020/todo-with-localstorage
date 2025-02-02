@@ -42,7 +42,7 @@ const TodoList: React.FC<TodoListProps> = (props) => {
           .map((todo, index) => (
             <li key={index}>
               <span>{index}</span>
-              <DisplayTodo singleTodo={todo} handleTodoDone={handleTodoDone} handleTodoDelete={handleTodoDelete} handleTodoEdit={handleTodoEdit}/>
+              <DisplayTodo singleTodo={todo} todos={props.todos} setTodos={props.setTodos} handleTodoDone={handleTodoDone} handleTodoDelete={handleTodoDelete} handleTodoEdit={handleTodoEdit}/>
             </li> // Access and display Itodo from each ITodos object
             //   <li key={index}>{todo.PropertyTodo}</li> // Access and display Itodo from each ITodos object
           ))}
