@@ -26,10 +26,18 @@ npm install
 
 ### 🔍 Enable Debugging Logs  
 
-To enable debugging logs, add the following key-value pair in your **browser's local storage**:  
+To enable debugging logs, follow these steps:  
 
-- **Key**: `debug`  
-- **Value**: `app`  
+1. Add the following key-value pair in your **browser's local storage**:  
+
+   - **Key**: `debug`  
+   - **Value**: `app`  
+
+2. Create a `.env` file in the project root (if not already present) and add the following line:  
+
+   ```ini
+   VITE_NODE_ENV=development
+
 
 ## 📚 Resources  
 
