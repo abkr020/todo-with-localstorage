@@ -12,10 +12,16 @@ There is a button to clear all tasks from local storage.
 
 clone repositery
 
-npm install
+```javascript
+git clone https://github.com/abkr020/todo-with-localstorage.git
+```
+
+install node package manager
 
 ```javascript
 npm install
 ```
 
 add a key value pair in the local storage to see the debugging logs
+
+key is **debug** and value is **app**
