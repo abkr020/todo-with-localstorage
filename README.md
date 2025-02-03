@@ -3,10 +3,9 @@
 ## 📌 Table of Contents  
 - [About](#about)  
 - [Local Setup](#local-setup)  
-- [Enable Debugging Logs](#enable-debugging-logs)  
+- [Enable Debugging Logs](#Enable-Debugging-Logs)  
 - [Install Dependencies](#install-dependencies)  
 - [Resources](#resources)  
-- [Tech Stack](#tech-stack
 
 ## about
 
@@ -18,7 +17,7 @@ All tasks will be stored in local storage.
 
 There is a button to clear all tasks from local storage.
 
-## local setup
+## local-setup
 
 clone repositery
 
@@ -32,7 +31,7 @@ install node package manager
 npm install
 ```
 
-### 🔍 Enable Debugging Logs  
+### 🔍 Enable Debugging Logs
 
 To enable debugging logs, follow these steps:  
 
