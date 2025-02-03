@@ -1,5 +1,7 @@
 # Karya Suchi
 
+A simple task management application that allows you to add, edit, delete, and mark tasks as done.
+
 ## about
 
 In this application, you can add, edit, delete, and mark tasks as done.
@@ -22,6 +24,9 @@ install node package manager
 npm install
 ```
 
-add a key value pair in the local storage to see the debugging logs
+### 🔍 Enable Debugging Logs  
 
-key is **debug** and value is **app**
+To enable debugging logs, add the following key-value pair in your **browser's local storage**:  
+
+- **Key**: `debug`  
+- **Value**: `app`  
