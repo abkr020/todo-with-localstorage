@@ -4,7 +4,7 @@
 - [About](#about)  
 - [Local Setup](#local-setup)  
 - [Enable Debugging Logs](#Enable-Debugging-Logs)  
-- [Resources](#resources)  
+- [Resources](#Resources)  
 
 ## about
 
@@ -30,7 +30,7 @@ install node package manager
 npm install
 ```
 
-### Enable Debugging Logs 🔍
+### Enable Debugging Logs
 
 To enable debugging logs, follow these steps:  
 
@@ -45,6 +45,6 @@ To enable debugging logs, follow these steps:
    VITE_NODE_ENV=development
 
 
-## Resources 📚
+## Resources
 
 [📺 Watch on YouTube](https://www.youtube.com/watch?v=FJDVKeh7RJI)
