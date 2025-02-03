@@ -1,8 +1,16 @@
 # Karya Suchi
 
-A simple task management application that allows you to add, edit, delete, and mark tasks as done.
+## 📌 Table of Contents  
+- [About](#about)  
+- [Local Setup](#local-setup)  
+- [Enable Debugging Logs](#enable-debugging-logs)  
+- [Install Dependencies](#install-dependencies)  
+- [Resources](#resources)  
+- [Tech Stack](#tech-stack
 
 ## about
+
+A simple task management application that allows you to add, edit, delete, and mark tasks as done.
 
 In this application, you can add, edit, delete, and mark tasks as done.
 
