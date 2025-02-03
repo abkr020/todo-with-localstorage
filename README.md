@@ -14,13 +14,13 @@ There is a button to clear all tasks from local storage.
 
 clone repositery
 
-```javascript
+```bash
 git clone https://github.com/abkr020/todo-with-localstorage.git
 ```
 
 install node package manager
 
-```javascript
+```bash
 npm install
 ```
 
