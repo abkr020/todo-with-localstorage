@@ -1,8 +1,21 @@
-# React + Vite
+# Karya Suchi
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## about
 
-Currently, two official plugins are available:
+In this application, you can add, edit, delete, and mark tasks as done.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+All tasks will be stored in local storage.
+
+There is a button to clear all tasks from local storage.
+
+## local setup
+
+clone repositery
+
+npm install
+
+```javascript
+npm install
+```
+
+add a key value pair in the local storage to see the debugging logs
