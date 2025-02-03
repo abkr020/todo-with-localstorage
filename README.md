@@ -30,3 +30,7 @@ To enable debugging logs, add the following key-value pair in your **browser's l
 
 - **Key**: `debug`  
 - **Value**: `app`  
+
+## 📚 Resources  
+
+[📺 Watch on YouTube](https://www.youtube.com/watch?v=FJDVKeh7RJI)
